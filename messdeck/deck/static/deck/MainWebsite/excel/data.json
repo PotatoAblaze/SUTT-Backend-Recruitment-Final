@@ -1,0 +1,466 @@
+{
+    "2023-09-01": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "MISSAL",
+            "PAV",
+            "LEMON + ONION",
+            "BANANA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "GREEN SALAD",
+            "LAUKI CHANNA ",
+            "HARYALI KOFTA CURRY",
+            "DAL TADKA",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "CHOCO CHIP I/C ",
+            "SHIKANJI"
+        ],
+        "DINNER": [
+            "CORN SALAD",
+            "DAL MAKHANI ",
+            "MIX VEG ",
+            "EGG FRIED RICE / VEG FRIED RICE",
+            "CHAPATI",
+            "RASAM"
+        ]
+    },
+    "2023-09-02": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "SUJI UPMA",
+            "ADRAK CHUTNEY",
+            "PAPAYA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "GREEN CHUTNEY",
+            "MIX BHAJIA",
+            "RAGDA MUTTER",
+            "CURD /BUTTER",
+            "ALOO PARATHA",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "KHUS SARABAT"
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "METHI MUTTER MALAI ",
+            "MIX DAL ",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM",
+            "SEVIYAN KHEER "
+        ]
+    },
+    "2023-09-03": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "MASALA DOSA",
+            "SAMBHAR",
+            "COCONUT CHUTNEY",
+            "WATERMELON ",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "ONION SALAD",
+            "MUTTER PANEER",
+            "BUTTER CHICKEN ",
+            "NAAN",
+            "BIRYANI RICE",
+            "BOONDI RAITA"
+        ],
+        "DINNER": [
+            "BHEL POORI",
+            "VEG KOHLAPURI",
+            "DAL LASUNI ",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM"
+        ]
+    },
+    "2023-09-04": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "POHA",
+            "SEV",
+            "CUT ONION LEMON",
+            "GUAVA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "GREEN SALAD",
+            "SOYA HANDI ",
+            "RAJMA MASALA",
+            "RED MASOOR DAL ",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "SWEET LASSI "
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "BHINDI DO PIYAZA",
+            "ARHAR DAL TADKA",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM",
+            "FRUIT CUSTARD"
+        ]
+    },
+    "2023-09-05": {
+        "BREAKFAST": [
+            "NO EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "ALOO PARATHA",
+            "CURD",
+            "PICKEL",
+            "PEAR",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "MACARONI SALAD",
+            "JEERA ALOO ",
+            "GATTA  CURRY ",
+            "MIX DAL",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "COOKIES & CREAM I/C"
+        ],
+        "DINNER": [
+            "CUT ONION+ LEMON ",
+            "KHATA MEETHA PUMPKIN",
+            "CHOLE  MASALA",
+            "PURI ",
+            "JEERA RICE",
+            "RASAM",
+            "CUCUMBER  RAITA"
+        ]
+    },
+    "2023-09-06": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "IDLI / SAUTEE IDLI ",
+            "SAMBHAR",
+            "COCONUT CHUTNEY",
+            "PINEAPPLE  ",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "ONION SALAD",
+            "PANEER LABABDAR",
+            "DAL MAKHANI",
+            "CHAPATI",
+            "VEG PULAO ",
+            "PINEAPPLE  RAITA",
+            "SHIKANJI"
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "VEG 65",
+            "MIX DAL",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM",
+            "COLD CHOCO MILK"
+        ]
+    },
+    "2023-09-07": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "MUTTER ",
+            "KULCHA",
+            "CUT ONION LEMON",
+            "BANANA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "FRYMS",
+            "MADRASI ALOO ",
+            "KADHI PAKODA",
+            "CURD RICE",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "MASALA CHAAS"
+        ],
+        "DINNER": [
+            "COCONUT CHUTNEY",
+            "VADA",
+            "MASALA DOSA",
+            "SAMBAR",
+            "LEMON RICE "
+        ]
+    },
+    "2023-09-08": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "SEVIYAA  UPMA",
+            "ADRAK CHUTNEY",
+            "WATERMELON",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "PAPDI CHAAT",
+            "MIX VEG ",
+            "SOYA CURRY",
+            "DAL TADKA",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "CHOCO CHIP I/C"
+        ],
+        "DINNER": [
+            "ONION SALAD",
+            "PANEER KADHAI ",
+            "DAL MAHARANI ",
+            "CHAPATI",
+            "PULAO RICE",
+            "BURANI  RAITA"
+        ]
+    },
+    "2023-09-09": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "VADA  PAV",
+            "GREEN CHUTNEY",
+            "SWEET DALIYA",
+            "PEAR ",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "GREEN CHUTNEY",
+            "FRENCH FIRES",
+            "KALA CHANA MASALA",
+            "CURD /BUTTER",
+            "MIX VEG PARATHA ",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "ROOH AFZA"
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "GATTA CURRY",
+            "CHANNA DAL TADKA",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM",
+            "RAJASTHANI PETHA"
+        ]
+    },
+    "2023-09-10": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "MASALA DOSA",
+            "SAMBHAR",
+            "COCONUT CHUTNEY",
+            "BANANA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "ONION SALAD",
+            "PANEER LAHORI ",
+            "DHABA CHICKEN",
+            "NAAN ",
+            "BIRYANI RICE",
+            "ONION MINT RAITA"
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "BHINDI MASALA",
+            "MIX DAL ",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM"
+        ]
+    },
+    "2023-09-11": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "POHA",
+            "SEV",
+            "CUT ONION LEMON",
+            "WATERMELON",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "GREEN SALAD",
+            "TINDA MASALA",
+            "RAJMA MASALA",
+            "DAL PALAK",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "SWEET LASSI "
+        ],
+        "DINNER": [
+            "LAHSUN CHUTNEY",
+            "MIRCHI KE TAPOOREY",
+            "DAL TADKA",
+            "ALOO RASSA",
+            "BATTI / CHAPATI",
+            "PLAIN RICE",
+            "CHURMA"
+        ]
+    },
+    "2023-09-12": {
+        "BREAKFAST": [
+            "NO EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "M/S S/W ",
+            "TOMATO SAUCE ",
+            "SWEET DALIYA",
+            "BANANA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "MACARONI SALAD",
+            "KATHAL MASALA",
+            "VEG KOFTA CURRY ",
+            "RED MASOOR DAL ",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "ROSELEMONADE"
+        ],
+        "DINNER": [
+            "LEMON + ONION",
+            "JEERA ALOO",
+            "CHOLE  MASALA",
+            "BHATURE",
+            "JEERA RICE",
+            "RASAM",
+            "CUCUMBER  RAITA"
+        ]
+    },
+    "2023-09-13": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "IDLI",
+            "SAMBHAR",
+            "COCONUT CHUTNEY",
+            "PAPAYA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "ONION SALAD",
+            "MALAI KOFTA",
+            "DAL MAKHANI ",
+            "CHAPATI",
+            "PULAO RICE",
+            "BOONDI RAITA",
+            "BUTTER SCOTCH I/C"
+        ],
+        "DINNER": [
+            "GREEN SALAD",
+            "PAPD MANGODI ",
+            "DAL PALAK ",
+            "CHAPATI",
+            "PLAIN RICE",
+            "RASAM"
+        ]
+    },
+    "2023-09-14": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "BREAD PAKORA ",
+            "TOMATO KETCHUP",
+            "SWEET DALIYA",
+            "PINEAPPLE",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "ROASTED PAPAD ",
+            "PAKODA KADHI",
+            "KURKURE BHINDI",
+            "CURD RICE",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "TANG "
+        ],
+        "DINNER": [
+            "ONION + LEMON ",
+            "PAO",
+            "BHAJI",
+            "DAL TADKA",
+            "CHAPATI ",
+            "PLAIN RICE"
+        ]
+    },
+    "2023-09-15": {
+        "BREAKFAST": [
+            "CHOICE OF EGG",
+            "CORNFLAKES",
+            "BREAD +JAM",
+            "MUTTER ",
+            "KULCHA",
+            "CUT ONION LEMON",
+            "BANANA",
+            "TEA+ COFFEE",
+            "Milk"
+        ],
+        "LUNCH": [
+            "BHEL POORI",
+            "TURAI MASALA",
+            "MIX KATHOL",
+            "DAL TADKA",
+            "CHAPATI",
+            "PLAIN  RICE",
+            "SAMBAR",
+            "MANGO LASSI"
+        ],
+        "DINNER": [
+            "CUCUMBER SALAD",
+            "ALOO MUTTER RASSA ",
+            "DAL MAKHANI",
+            "EGG FRIED RICE / VEG FRIED RICE",
+            "CHAPATI",
+            "RASAM",
+            "THANDAI"
+        ]
+    }
+}

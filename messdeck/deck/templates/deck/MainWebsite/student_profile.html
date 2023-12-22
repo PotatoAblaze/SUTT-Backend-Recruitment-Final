@@ -1,0 +1,16 @@
+{% extends "deck/MainWebsite/student_base.html" %}
+
+{% block content %}
+<div class='container pt-4'>
+    <div class='profile-text'>
+        <h1>Student Profile</h1>
+    
+        <ul>
+            <li><strong>Name:</strong> {{ name }}</li>
+            <li><strong>ID:</strong> {{ id_number }} </li>
+            <li><strong>Hostel:</strong> {{ hostel }} </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+

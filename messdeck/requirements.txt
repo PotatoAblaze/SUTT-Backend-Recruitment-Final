@@ -1,0 +1,5 @@
+django
+django-allauth
+pillow
+openpyxl
+pandas

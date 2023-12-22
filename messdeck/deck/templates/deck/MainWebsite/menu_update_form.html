@@ -1,0 +1,31 @@
+{% extends "deck/MainWebsite/staff_base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if post %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        Your menu has been updated successfully!
+    </div>
+</div>
+{% endif %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Update Mess Menu (File should be named 'MessMenu.xlsx')</h2>
+
+    <form action="{% url 'update_menu' %}" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-group mt-3 mb-4">
+            <label for="menu_file">Menu Excel Upload:  </label>
+            <input type="file" name="menu_file" accept=".xlsx" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "deck/MainWebsite/student_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Student Dashboard</h1>
+    <h2 class="mb-4">Attendance</h2>
+
+    {% if attendance_given %}
+    <div class="container mt-1 mr-5">
+        <div class="alert alert-info " role="alert">
+            You've already given attendance
+        </div>
+    </div>
+    {% elif attendance == 0 %}
+    <div class="container mt-1 mr-5">
+        <div class="alert alert-warning " role="alert">
+            Mess is currently inactive.
+        </div>
+    </div>
+    {% else %}
+    <div class="container mt-2">
+        <form action="{% url 'student_dashboard'%}" method="post">
+            {% csrf_token %}
+
+            <input type="hidden" name="meal_type" value={{ attendance }}>
+
+            <button type="submit" class="btn btn-primary">Mark Attendance</button>
+            
+        </form>
+    </div>
+
+    {% endif %}
+    <br><br>
+    
+    <h2 class="mb-4">Next Meal</h2>
+    {% if next_meal_found %}
+    
+    <div class="container mt-4">
+        <h3 class="mb-3">{{ next_meal_name }}</h3>
+      
+        <ul class="list-group">
+          {% for meal in meal_data %}
+            <li class="list-group-item">{{ meal }}</li>
+          {% endfor %}
+        </ul>
+    </div>
+
+    {% else %}
+    <div class="container mt-1 mr-5">
+    <div class="alert alert-warning " role="alert">
+        Meal not found in data!
+    </div>
+    </div>
+    {% endif %}
+    
+    
+</div>
+
+{% endblock %}

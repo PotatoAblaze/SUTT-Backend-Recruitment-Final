@@ -1,0 +1,43 @@
+{% extends "deck/MainWebsite/student_base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if post %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        Your form has been submitted successfully!
+    </div>
+</div>
+{% endif %}
+
+<div class="container mt-5">
+    <h2 class="mb-4">File a Complaint</h2>
+
+    <form action="{% url 'complain' %}" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+         <!-- Title Input -->
+         <div class="form-group">
+            <label for="title-input">Title <span class="text-muted">(required)</span>:</label>
+            <input type="text" class="form-control" id="title-input" name="title" maxlength="255" required>
+        </div>
+
+        <!-- Text Input -->
+        <div class="form-group mt-2">
+            <label for="text-input">Text Input (Max 3000 characters) <span class="text-muted">(required)</span>:</label>
+            <textarea class="form-control" id="text-input" name="description" maxlength="3000" rows="4" required></textarea>
+        </div>
+        
+        <!-- Image Upload -->
+        <div class="form-group mt-3 mb-4">
+            <label for="image">Image Upload:</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

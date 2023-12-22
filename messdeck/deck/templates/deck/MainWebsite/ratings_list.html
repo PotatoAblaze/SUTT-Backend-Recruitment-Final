@@ -1,0 +1,38 @@
+{% extends "deck/MainWebsite/staff_base.html" %}
+{% load static %}
+
+{% block heading %}
+<style>
+    .valign-top td {
+        vertical-align: top;
+    }
+</style>
+{% endblock%}
+
+{% block content %}
+
+
+<div class="container mt-4">
+    <h1>Food Ratings</h1>
+    <table class="table table-bordered">
+        
+        <thead>
+            <tr>
+                <th scope="col">Dish Name</th>
+                <th scope="col">Number of Ratings</th>
+                <th scope="col">Average Rating</th>
+            </tr>
+        </thead>
+        {% for r in rating_objects %}
+            <tbody class="valign-top">
+                <tr>
+                    <th scope="row"> {{r.name}} </th>
+                    <td>{{r.rating_count}}</td>
+                    <td>{{r.average_rating}}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

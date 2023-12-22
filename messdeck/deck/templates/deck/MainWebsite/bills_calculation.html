@@ -1,0 +1,47 @@
+{% extends "deck/MainWebsite/staff_base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if post %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        The bill has been exported successfully!
+    </div>
+</div>
+{% endif %}
+
+<div class="container mt-4">
+    <h1>Billing Data</h1>
+
+    <form action="{% url 'bills' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg mt-4 mb-2">Export To Excel</button>
+    </form>
+
+    <table class="table">
+        
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Breakfast</th>
+                <th scope="col">Lunch</th>
+                <th scope="col">Dinner</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        {% for a in billing_data %}
+            <tbody class="valign-top">
+                <tr>
+                    <th scope="row"> {{a.name}} </th>
+                    <td>{{a.breakfast_count}}</td>
+                    <td>{{a.lunch_count}}</td>
+                    <td>{{a.dinner_count}}</td>
+                    <td>Rs. {{a.total}}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

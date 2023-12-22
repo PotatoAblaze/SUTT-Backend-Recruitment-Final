@@ -1,0 +1,74 @@
+{% extends "deck/MainWebsite/staff_base.html" %}
+{% load static %}
+
+{% block heading %}
+<style>
+    .max-img {
+        max-width: 100px; /* Set your desired maximum width */
+        max-height: 100px; /* Set your desired maximum height */
+    }
+
+    .valign-top td {
+        vertical-align: top;
+    }
+</style>
+{% endblock%}
+
+{% block content %}
+
+
+
+<div class="container mt-4">
+    <h1>Complaints List</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Complaint ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                </tr>
+            </thead>
+            {% for c in complaints %}
+                <tbody class="valign-top">
+                    <tr>
+                        <th scope="row"> {{c.complaint_id}} </th>
+                        <td>{{c.date}}</td>
+                        <td>{{c.title}}</td>
+                        <td>{{c.description}}</td>
+                        {% if c.image %}
+                        <td><a href="{{c.image.url}}"><img src="{{c.image.url}}" alt="{{c.title}}" class="img-fluid max-img"></a></td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="pt-3"> </div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if first_page %}disabled{% endif %}">
+        <a class="page-link" href="?page={{ page_no|add:"-1" }}">Previous</a>
+      </li>
+      {% for page in pages %}
+        {% if page != "..." %}
+        <li class="page-item {% if page_no == page %}active{% endif %}"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+        <li class="page-item">
+        {% else %}
+        <li class="page-item"><p> ... </p> </li>
+        <li class="page-item">
+        {% endif %}
+      {% endfor %}
+      
+      <li class="page-item {% if last_page %}disabled{% endif %}">
+        <a class="page-link" href="?page={{ page_no|add:"1" }}">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+{% endblock %}

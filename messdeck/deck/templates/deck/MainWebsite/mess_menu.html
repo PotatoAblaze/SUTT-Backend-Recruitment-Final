@@ -1,0 +1,164 @@
+{% extends "deck/MainWebsite/student_base.html" %}
+{% load static %}
+
+{% block heading %}
+    <link rel="stylesheet" href="{% static 'deck/MainWebsite/assets/css/menu.css'%}" />
+    <link href=”https://pro.fontawesome.com/releases/v5.10.0/css/all.css” rel=”stylesheet”/>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='container pt-4'>
+
+    <h1>Mess Menu</h1>
+    <div style="">
+        <div class="table-responsive">
+            <table class="table table-bordered table-fixed">
+                <thead class="table-info" style="font-size: 22px;">
+                    <tr>
+                        {% for date in menu_objects %}
+                        <th class="col" scope="col" style="min-width: 200px;"> {{ date.date|date:"d M (l)" }} </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <thead class="table-light" style="font-size: 19px;">
+                    <tr>
+                        {% for date in menu_objects %}
+                        <th class="col" scope="col" style="min-width: 100px;"> BREAKFAST </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody class="valign-top">
+                    {% for row in breakfast_rows %}
+                        <tr>
+                            {% for item in row %}
+                            <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+                <thead class="table-light" style="font-size: 19px;">
+                    <tr>
+                        {% for date in menu_objects %}
+                        <th class="col" scope="col" style="min-width: 100px;"> LUNCH </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody class="valign-top">
+                    {% for row in lunch_rows %}
+                        <tr>
+                            {% for item in row %}
+                            <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+                <thead class="table-light" style="font-size: 19px;">
+                    <tr>
+                        {% for date in menu_objects %}
+                        <th class="col" scope="col" style="min-width: 100px;"> DINNER </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody class="valign-top">
+                    {% for row in dinner_rows %}
+                        <tr>
+                            {% for item in row %}
+                            <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="pt-5"></div>
+
+<div class='container'>
+    <div class='profile-text'>
+        <h1>Ratings</h1>
+                
+        {% for date in menu_objects %}
+        
+        <form action="{% url 'menu' %}" method="post">
+        {% csrf_token %}
+        <br>
+        <h1>{{ date.date }}</h1>
+        <h2>Breakfast</h2>
+        <br>
+        <ul>
+            {% for item in date.breakfast %}
+            <div class="form-group">
+                <li> <div class="slidercaption"><label>{{ item }} </label></div>
+                {% if date.has_rated %}
+                    <p>Already rated</p>
+                {% else %}
+                    <div class="slidercontainer">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="{{ item }}" name="{{ item }}" oninput="this.nextElementSibling.value = this.value">
+                        <output>5</output>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </ul>
+
+        <h2>Lunch</h2>
+        <br>
+        <ul>
+            {% for item in date.lunch %}
+            <div class="form-group">
+                <li> <div class="slidercaption"><label>{{ item }} </label></div>
+                {% if date.has_rated %}
+                    <p>Already rated</p>
+                {% else %}
+                    <div class="slidercontainer">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="{{ item }}" name="{{ item }}" oninput="this.nextElementSibling.value = this.value">
+                        <output>5</output>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </ul>
+
+        <h2>Dinner</h2>
+        <br>
+        <ul>
+            {% for item in date.dinner %}
+            <div class="form-group">
+                <li> <div class="slidercaption"><label>{{ item }} </label></div>
+                {% if date.has_rated %}
+                    <p>Already rated</p>
+                {% else %}
+                    <div class="slidercontainer">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="{{ item }}" name="{{ item }}" oninput="this.nextElementSibling.value = this.value">
+                        <output>5</output>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </ul>
+
+        <input type="hidden" id="dateInput" name="dateInput" value="{{ date.date }}">
+        {% if date.has_rated == False %}
+            <div class="p-l-300">
+                <button class="btn btn-primary btn-lg p-t-20" type="submit">
+                        Submit ratings for {{ date.date }}
+                </button>
+            </div>
+        {% endif %}
+
+        </form>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
