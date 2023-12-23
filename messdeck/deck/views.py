@@ -7,6 +7,7 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.views.generic.base import View
 from django.core.paginator import Paginator
+from django.db.models import Count
 
 import os
 import datetime
@@ -15,7 +16,7 @@ from django.http import HttpResponse, Http404
 
 from messdeck import settings
 from .MenuToJSON import MenuParser
-from .models import Dish, Rating, Complaint, AttendanceRecord, MyUser, Menu
+from .models import Dish, Rating, Complaint, AttendanceRecord, MyUser, Menu, MenuDishEntry
 from openpyxl import Workbook
 
 # Create your views here.
@@ -49,8 +50,34 @@ def staff_profile_view(request):
 
 async def save_parsed_menu():
     await Menu.objects.all().adelete()
-    new_menu_object = Menu(menu_json = MenuParser().create_menu_structure())
-    await new_menu_object.asave()
+    menu_dict : dict = MenuParser().create_menu_structure()
+    
+    for d in menu_dict.keys():
+        date_components = d.split('-')
+        year = int(date_components[0])
+        month = int(date_components[1])
+        day = int(date_components[2])
+        new_date = datetime.date(year, month, day)
+        
+        new_menu_object = Menu(date=new_date)
+        await new_menu_object.asave()
+        
+        breakfast_list = menu_dict[d]['BREAKFAST']
+        lunch_list = menu_dict[d]['LUNCH']
+        dinner_list = menu_dict[d]['DINNER']
+        
+        for dish in breakfast_list:
+            new_dish = MenuDishEntry(name=dish, meal='B', menu_object=new_menu_object)
+            await new_dish.asave()
+            
+        for dish in lunch_list:
+            new_dish = MenuDishEntry(name=dish, meal='L', menu_object=new_menu_object)
+            await new_dish.asave()
+            
+        for dish in dinner_list:
+            new_dish = MenuDishEntry(name=dish, meal='D', menu_object=new_menu_object)
+            await new_dish.asave()
+        
     await asyncio.sleep(5)
     print("COMPLETE")
 
@@ -98,7 +125,6 @@ def menu_view(request):
     
     
     if(Menu.objects.all().count() > 0):
-        menu_structure : dict = Menu.objects.get().menu_json
         
         menu_objects = []
         
@@ -106,16 +132,18 @@ def menu_view(request):
         lunch_lengths = []
         dinner_lengths = []
         
-        for k in menu_structure.keys():
-            date_components = k.split('-')
-            date_of_rating = datetime.date(int(date_components[0]), int(date_components[1]), int(date_components[2]))
+        for k in Menu.objects.all().order_by("date"):
+            breakfast_dishes = list(k.menudishentry_set.filter(meal='B').values_list('name', flat=True))
+            lunch_dishes = list(k.menudishentry_set.filter(meal='L').values_list('name', flat=True))
+            dinner_dishes = list(k.menudishentry_set.filter(meal='D').values_list('name', flat=True))
             
-            breakfast_lengths.append(len(menu_structure[k]['BREAKFAST']))
-            lunch_lengths.append(len(menu_structure[k]['LUNCH']))
-            dinner_lengths.append(len(menu_structure[k]['DINNER']))
+            breakfast_lengths.append(len(breakfast_dishes))
+            lunch_lengths.append(len(lunch_dishes))
+            dinner_lengths.append(len(dinner_dishes))
             
-            obj = MenuDisplay(date_of_rating, menu_structure[k]['BREAKFAST'], menu_structure[k]['LUNCH'], menu_structure[k]['DINNER'], Rating.objects.filter(user=request.user, date=date_of_rating).exists())
+            obj = MenuDisplay(k.date, breakfast_dishes, lunch_dishes, dinner_dishes, Rating.objects.filter(user=request.user, date=k.date).exists())
             menu_objects.append(obj)
+
         
         breakfast_rows = max(breakfast_lengths) + 1
         lunch_rows = max(lunch_lengths) + 1
@@ -359,7 +387,7 @@ def student_dashboard_view(request):
         date_of_data = datetime.date(int(date_components[0]), int(date_components[1]), int(date_components[2]))
         if(date_of_data == desired_date):
             context['next_meal_found'] = True
-            context['meal_data'] = menu_structure[k][desired_meal]
+            context['meal_data'] = list(Menu.objects.get(date=date_of_data).menudishentry_set.list_values("name", flat=True))
             
     return render(request, "deck/MainWebsite/student_dashboard.html", context)
 

@@ -33,11 +33,25 @@ class MyUser(AbstractUser):
 
 
 class Menu(models.Model):
-    
-    menu_json = models.JSONField("menu", null=True)
+    date = models.DateField(default=date.today)
     
     def __str__(self) -> str:
-        return "MENU"
+        return f"MENU FOR {date}"
+
+
+class MenuDishEntry(models.Model):
+    choices = [
+        ('B', 'BREAKFAST'),
+        ('L', 'LUNCH'),
+        ('D', 'DINNER'),
+    ]
+    
+    dish_name = models.CharField(name='name', max_length=40)
+    meal_type = models.CharField(name='meal', choices=choices, max_length=1)
+    menu_object = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return(self.name)
 
 
 class Dish(models.Model):
