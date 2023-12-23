@@ -12,6 +12,7 @@ from django.db.models import Count
 import os
 import datetime
 import asyncio
+from threading import Thread
 from django.http import HttpResponse, Http404
 
 from messdeck import settings
@@ -49,6 +50,7 @@ def staff_profile_view(request):
 
 
 async def save_parsed_menu():
+    print("STARTED PARSING")
     await Menu.objects.all().adelete()
     menu_dict : dict = MenuParser().create_menu_structure()
     
@@ -78,8 +80,7 @@ async def save_parsed_menu():
             new_dish = MenuDishEntry(name=dish, meal='D', menu_object=new_menu_object)
             await new_dish.asave()
         
-    await asyncio.sleep(5)
-    print("COMPLETE")
+    print("COMPLETED PARSING")
 
 
 def update_menu_view(request):
@@ -93,11 +94,14 @@ def update_menu_view(request):
         
         system.save("MessMenu.xlsx", uploaded_file)
         
-        asyncio.run(save_parsed_menu())
+        t = Thread(target=asyncio.run, args=(save_parsed_menu(),))
+        t.start()
         
         context['post'] = True
-        
+    
     return render(request, "deck/MainWebsite/menu_update_form.html", context)
+
+
 
 def login_page(request):
     context = {}
@@ -366,7 +370,6 @@ def student_dashboard_view(request):
     
     context['attendance_given'] = AttendanceRecord.objects.filter(user=request.user, meal_type=context['attendance'], date=datetime.date.today()).exists()
 
-    menu_structure : dict = MenuParser().create_menu_structure()
     
     desired_date = datetime.date.today()
     if(datetime.datetime.now().hour >= 21):
@@ -382,12 +385,13 @@ def student_dashboard_view(request):
     
     context['next_meal_name'] = desired_meal
     
-    for k in menu_structure.keys():
-        date_components = k.split('-')
-        date_of_data = datetime.date(int(date_components[0]), int(date_components[1]), int(date_components[2]))
-        if(date_of_data == desired_date):
-            context['next_meal_found'] = True
-            context['meal_data'] = list(Menu.objects.get(date=date_of_data).menudishentry_set.list_values("name", flat=True))
+    data_exists = Menu.objects.filter(date=desired_date).count() > 0
+    context['next_meal_found'] = data_exists
+    
+    context['meal_data'] = ""
+    if(data_exists):
+        context['meal_data'] = list(Menu.objects.get(date=desired_date).menudishentry_set.list_values("name", flat=True))
+            
             
     return render(request, "deck/MainWebsite/student_dashboard.html", context)
 
